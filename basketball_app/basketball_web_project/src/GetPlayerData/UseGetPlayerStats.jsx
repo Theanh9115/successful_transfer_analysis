@@ -19,19 +19,7 @@ async function getPlayerStats(season) {
   return data;
 }
 
-getPlayerStats(2024)
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error));
-
-
-function App(){
-
-
-  return (
-    <div>
-
-    </div>
-  );
+function useGetPlayerStats(){
+  const [playerStats, setPlayerStats] = useState();
+  
 }
-
-export default App;
