@@ -2,7 +2,7 @@
 
 **Checked against repository:** 2026-10-08. **Current phase:** 1, project planning and setup. The Vite/React scaffold exists and the app renders an empty view. A frontend API request experiment exists but does not store data or expose a coach workflow. `data_analysis/src/data/load_data.py` and the data folder are empty. No backend, database, trained model, evaluation, authentication, or deployment is present in the inspected files.
 
-**Active work:** define measurable outcomes and test data coverage. **Confirmed:** the first candidate pool and recruiting destinations are men's NCAA Division I only; desired seasons are 2022–23 through 2026–27; users are coaches and scouts; the first flow is name search → profile → watchlist → comparison. The model's annual input cutoff is after the final men's DI tournament game. **Blockers:** actual DI record coverage and account access, exact personal/team success metrics and outcome horizon, single-user versus multi-staff scope. A frontend source file still contains an exposed API credential; rotate it and plan server-side access before using the source in an application.
+**Active work:** define measurable outcomes and audit data quality. **Confirmed:** the first candidate pool and recruiting destinations are men's NCAA Division I only; desired seasons are 2022–23 through 2026–27; users are coaches and scouts; the first flow is name search → profile → watchlist → comparison. The model's annual input cutoff is after the final men's DI tournament game. The owner reports successful CBBD player-season and team-season requests for season values 2023–2027, plus portal requests for year values 2023–2027, and confirms the exposed old key was revoked. The old key literal is absent from the inspected frontend source; its API hook still has an empty key placeholder and a direct browser request. **Blockers:** record completeness and player/transfer linkage, exact personal/team success metrics and outcome horizon, single-user versus multi-staff scope.
 
 Checkboxes represent verified tasks, not intentions. Phase boundaries are learning milestones; the owner is the primary implementer. Do not implement unchecked tasks without an explicit request.
 
@@ -20,10 +20,11 @@ Checkboxes represent verified tasks, not intentions. Phase boundaries are learni
 - [x] Set each prediction cycle's input cutoff after the final men's DI tournament game.
 - [ ] Define measurable personal/team outcomes, baselines, and prediction horizon for later ML work.
 - [x] Review CBBD's published data ranges and API terms; record source links in `data-pipeline.md`.
-- [ ] Test actual men's DI player, team, and portal records for the desired seasons using authorized account access.
-- [ ] Rotate the exposed credential and plan server-side storage before integrating API data.
+- [x] Test CBBD player-season and team-season responses for season values 2023–2027 and portal responses for year values 2023–2027 (owner-reported; response counts and fields not yet audited).
+- [x] Revoke the exposed old key (owner-reported), remove its literal from inspected frontend source (verified), and document server-side credential storage for future integration.
+- [ ] Audit non-empty men's DI records, required fields, season counts, and player-to-transfer links; note 2026–27 is in progress.
 
-**Dependencies:** remaining owner decisions and source access. **Deliverables:** approved MVP scope, initial user flow, data-source inventory, and measurable success-label definitions. **Complete when:** the scope and workflow are testable, DI data feasibility is known, outcome labels are specified, and the credential risk has a remediation plan. Published CBBD ranges alone do not complete the coverage check.
+**Dependencies:** remaining owner decisions and data-quality audit. **Deliverables:** approved MVP scope, initial user flow, data-source inventory, and measurable success-label definitions. **Complete when:** the scope and workflow are testable, DI data feasibility is known beyond successful API responses, outcome labels are specified, and the credential risk has a remediation plan.
 
 ## Phase 2 — Database design
 
@@ -116,5 +117,5 @@ Checkboxes represent verified tasks, not intentions. Phase boundaries are learni
 ## Immediate next steps
 
 1. Define how to measure “player plays better” and “team improves,” and choose the outcome horizon; the post-tournament input cutoff is set.
-2. Test men's DI candidate and historical records across 2022–23 to 2026–27 with authorized access; remediate the exposed credential.
+2. Audit returned men's DI records, fields, counts, and transfer links across 2022–23 to 2026–27; keep future API credentials server-side when implementation is authorized.
 3. Then review the smallest Phase 2 schema exercise together before implementation.

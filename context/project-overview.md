@@ -139,4 +139,4 @@ flowchart LR
 
 **TBD:** precise personal and team success metrics, baselines, and post-transfer horizon; actual DI source coverage, access entitlement, and verified transfer eligibility; private single-staff versus multi-staff access. These decisions affect the schema and evaluation.
 
-Next: make the two success concepts measurable, verify DI records in the chosen source, and rotate the exposed credential before API work. Then review the smallest schema exercise in `progress.md`. See `data-pipeline.md` for data/model constraints.
+Next: make the two success concepts measurable and audit DI record completeness and transfer linkage in CBBD. The owner reports the exposed old key was revoked, and its literal is absent from inspected frontend source; keep future API access server-side. Then review the smallest schema exercise in `progress.md`. See `data-pipeline.md` for data/model constraints.
